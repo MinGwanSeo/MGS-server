@@ -16,6 +16,6 @@ export class ScreenShotController {
   })
   public async save(@Body() createScreenShotRequest: CreateScreenShotRequest) {
     await this.screenShotService.save(createScreenShotRequest)
-    return 'OK'
+    return 'OKK'
   }
 }
