@@ -2,7 +2,11 @@ import { ApiProperty } from '@nestjs/swagger'
 import { IsNotEmpty } from 'class-validator'
 
 export class CreateScreenShotRequest {
-  @IsNotEmpty({ message: '카카오 로그인 인가코드를 입력해주세요.' })
+  @IsNotEmpty({ message: '유튜브 영상 id(vid)를 입력해주세요' })
+  @ApiProperty()
+  vid: string
+
+  @IsNotEmpty({ message: '스크린샷 이미지 URL을 입력해주세요' })
   @ApiProperty()
   image: string
 

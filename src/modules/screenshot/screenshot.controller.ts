@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common'
+import { Body, Controller, Post } from '@nestjs/common'
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
 import { CreateScreenShotRequest } from './screenshot.dto'
 import { ScreenShotService } from './screenshot.service'
@@ -16,6 +16,6 @@ export class ScreenShotController {
   })
   public async save(@Body() createScreenShotRequest: CreateScreenShotRequest) {
     await this.screenShotService.save(createScreenShotRequest)
-    return 'OKK'
+    return 'OK'
   }
 }
