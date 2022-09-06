@@ -4,6 +4,7 @@ import { getMetadataArgsStorage } from 'typeorm'
 import { ScreenShotModule } from './modules/screenshot/screenshot.module'
 import config from 'ormconfig'
 import { ConfigModule } from '@nestjs/config'
+import { CommonModule } from './modules/common/common.module'
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ConfigModule } from '@nestjs/config'
     }),
     ConfigModule.forRoot({ isGlobal: true }),
     ScreenShotModule,
+    CommonModule,
   ],
   controllers: [],
   providers: [],
