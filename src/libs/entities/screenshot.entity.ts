@@ -3,7 +3,6 @@ import { Expose } from 'class-transformer'
 import { Column, Entity, PrimaryGeneratedColumn, Unique } from 'typeorm'
 
 @Entity({ name: 'screenshot' })
-@Unique(['vid'])
 @Expose()
 export class ScreenShot {
   @PrimaryGeneratedColumn()
