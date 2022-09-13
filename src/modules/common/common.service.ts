@@ -22,7 +22,7 @@ export class CommonService {
         Expires: 60 * 5,
       })
 
-      return { url, cdn: `${cdn}/${fullPath}` } as UploadUrlResponse
+      return { url, cdn: `${cdn}${fullPath}` } as UploadUrlResponse
     } catch (e) {
       console.log(e)
       throw new Error('업로드 URL 조회 에러')
