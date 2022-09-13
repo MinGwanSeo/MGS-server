@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { ScreenShot } from 'src/libs/entities/screenshot.entity'
 import { Repository } from 'typeorm'
-import { CreateScreenShotRequest } from './screenshot.dto'
+import { CreateScreenShotRequest, ScreenShotsRequest } from './screenshot.dto'
 
 @Injectable()
 export class ScreenShotService {
@@ -11,8 +11,13 @@ export class ScreenShotService {
     private readonly screenShotRepository: Repository<ScreenShot>,
   ) {}
 
+  public async findAll(screenShotsRequest: ScreenShotsRequest) {
+    const { vid } = screenShotsRequest
+    return this.screenShotRepository.find({ where: { vid }, order: { id: 'ASC' } })
+  }
+
   public async save(createScreenShotRequest: CreateScreenShotRequest) {
-    const { image, time } = createScreenShotRequest
-    await this.screenShotRepository.save(new ScreenShot({ image, time }))
+    const { vid, image, time } = createScreenShotRequest
+    await this.screenShotRepository.save(new ScreenShot({ vid, image, time }))
   }
 }

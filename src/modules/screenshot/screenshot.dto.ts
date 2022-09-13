@@ -14,3 +14,9 @@ export class CreateScreenShotRequest {
   @ApiProperty()
   time: Date
 }
+
+export class ScreenShotsRequest {
+  @IsNotEmpty({ message: '유튜브 영상 id(vid)를 입력해주세요' })
+  @ApiProperty()
+  vid: string
+}

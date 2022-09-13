@@ -1,12 +1,20 @@
-import { Body, Controller, Post } from '@nestjs/common'
+import { Body, Controller, Get, Post, Query } from '@nestjs/common'
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
-import { CreateScreenShotRequest } from './screenshot.dto'
+import { ScreenShot } from 'src/libs/entities/screenshot.entity'
+import { CreateScreenShotRequest, ScreenShotsRequest } from './screenshot.dto'
 import { ScreenShotService } from './screenshot.service'
 
 @Controller('screenshots')
 @ApiTags('스크린샷 API')
 export class ScreenShotController {
   constructor(private readonly screenShotService: ScreenShotService) {}
+
+  @Get()
+  @ApiResponse({ type: [ScreenShot] })
+  @ApiOperation({ summary: '스크린샷을 조회합니다.' })
+  public async screenShots(@Query() screenShotsRequest: ScreenShotsRequest) {
+    return this.screenShotService.findAll(screenShotsRequest)
+  }
 
   @Post()
   @ApiResponse({ type: String })
