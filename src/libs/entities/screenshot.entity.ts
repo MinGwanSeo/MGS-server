@@ -19,7 +19,7 @@ export class ScreenShot {
 
   @Column()
   @ApiProperty()
-  time: Date
+  vTime: number
 
   constructor(partial?: Partial<ScreenShot>) {
     return Object.assign(this, partial)

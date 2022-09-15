@@ -17,7 +17,7 @@ export class ScreenShotService {
   }
 
   public async save(createScreenShotRequest: CreateScreenShotRequest) {
-    const { vid, image, time } = createScreenShotRequest
-    await this.screenShotRepository.save(new ScreenShot({ vid, image, time }))
+    const { vid, image, vTime } = createScreenShotRequest
+    await this.screenShotRepository.save(new ScreenShot({ vid, image, vTime }))
   }
 }

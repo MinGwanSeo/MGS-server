@@ -12,7 +12,7 @@ export class CreateScreenShotRequest {
 
   @IsNotEmpty({ message: '영상 유튜브 시간을 입력해주세요' })
   @ApiProperty()
-  time: Date
+  vTime: number
 }
 
 export class ScreenShotsRequest {
