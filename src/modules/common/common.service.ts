@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid'
 
 import { Injectable } from '@nestjs/common'
-import { awsS3 } from 'src/libs/entities/aws'
+import { awsS3 } from 'src/libs/aws'
 import { UploadUrlResponse } from './common.dto'
 
 @Injectable()
