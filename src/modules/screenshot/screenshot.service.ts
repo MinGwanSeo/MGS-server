@@ -13,7 +13,7 @@ export class ScreenShotService {
 
   public async findAll(screenShotsRequest: ScreenShotsRequest) {
     const { vid } = screenShotsRequest
-    return this.screenShotRepository.find({ where: { vid }, order: { id: 'ASC' } })
+    return this.screenShotRepository.find({ where: { vid }, order: { vTime: 'ASC' } })
   }
 
   public async save(createScreenShotRequest: CreateScreenShotRequest) {
